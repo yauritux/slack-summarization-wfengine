@@ -7,12 +7,13 @@ import {
     ConversationsRepliesArguments,
 } from "@slack/web-api";
 
-const slackToken = process.env.SLACK_TOKEN;
-const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
+import { configDotenv } from "dotenv";
 
 function getSlackApp() {
-    console.log('slackToken=', slackToken);
-    console.log('slackSigningSecret=', slackSigningSecret);
+    configDotenv({path: './src/.env'});
+
+    const slackToken = process.env.SLACK_TOKEN;
+    const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
     return new App({
         token: slackToken,
         signingSecret: slackSigningSecret,
