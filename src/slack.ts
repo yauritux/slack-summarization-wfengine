@@ -11,6 +11,8 @@ const slackToken = process.env.SLACK_TOKEN;
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 
 function getSlackApp() {
+    console.log('slackToken=', slackToken);
+    console.log('slackSigningSecret=', slackSigningSecret);
     return new App({
         token: slackToken,
         signingSecret: slackSigningSecret,

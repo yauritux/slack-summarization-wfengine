@@ -14,6 +14,10 @@ async function run() {
   await worker.run();
 }
 
+import { configDotenv } from 'dotenv';
+
+configDotenv();
+
 run().catch((err) => {
   console.error(err);
   process.exit(1);
